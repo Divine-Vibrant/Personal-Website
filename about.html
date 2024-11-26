@@ -1,0 +1,135 @@
+<!-- 
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⠿⠛⠛⠛⠛⠛⠛⠛⠛⠛⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠛⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠉⠀⡀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⡀⠀⡀⢀⠀⢀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠐⠠⠐⠀⠀⠂⠁⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠞⡅⢹⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠈⠄⠐⠀⠈⠹⣿⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡆⠀⠀⢀⡴⣡⣼⣿⠈⣿⣷⣄⠀⠀⠀⠀⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠞⠀⠀⢀⣘⣛⠁⢀⡴⣛⣵⣿⣿⣿⡇⢻⣿⣿⣷⣄⠀⠀⢙⣓⣂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⠇⠀⠐⠛⠛⠃⠰⢟⣱⣿⣿⣿⣿⣿⣷⡈⣿⣿⣿⣿⠷⠄⠈⠛⠛⠓⠄⠘⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⢀⣴⡿⠋⡁⡰⠀⠀⠀⠀⠀⠑⠺⣿⣿⣿⣿⣿⣿⣿⣧⣦⣿⣿⣿⠖⠊⠀⠀⠀⠈⠑⢦⡌⠙⣄⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⢀⣼⡟⠀⣾⡟⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠈⣿⡄⠘⣷⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⢸⣿⡆⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠈⣿⣿⣾⣿⣷⡈⠛⠃⠀⠀⠀⣀⣨⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣘⡛⠁⠀⠀⠀⠀⣠⣿⣧⣶⣿⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⣹⣿⣿⣿⣿⣿⣷⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠉⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹
+⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠻⠿⠿⣿⠾⡯⠿⠟⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿
+⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠙⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁⣀⣠⣶⣴⣶⣴⣦⣤⡀⢸⣿⣿⣿⣿⣿⣿⣿⠿⡿⠟⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿
+⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠿⠿⣿⣿⣿⣿⣿⣿⣦⠙⠿⢹⣷⢻⣿⠧⠟⢡⣾⣿⣿⡿⢿⠻⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠿⠏⠿⡷⣦⣤⣤⣤⣤⣴⣶⠿⠉⠏⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⠘⣶⣶⣦⣭⣤⣤⣤⣥⣤⣶⣶⡏⢀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⢀⣠⣴⣾⣏⠐⣠⣿⣿⣿⣿⣻⣿⣿⣿⣿⣿⣻⡅⠞⢹⣿⣷⣄⡀⢤⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣵⣶⣿⣿⣿⣿⣿⣿⡆⢿⣿⣷⣮⣍⡛⠻⠽⠷⠯⠿⠿⠟⠠⠿⣛⣫⣭⣿⣿⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠐⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡈⢭⠭⣍⠭⡭⡍⠉⢭⣩⢍⡉⢡⣾⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠈⡟⠜⣫⢵⣩⡔⣧⢋⠎⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⣿⣿⠗⠀⠸⡄⠀⠀⠀⠀⢝⠿⣿⣿⣿⣿⣿⠿⠿⠟⢿⣿⣷⠘⣌⢧⣋⢶⡹⣂⠀⣴⣿⣿⣿⣿⠿⢿⣿⣿⣿⣿⠃⠀⠀⠀⠀⡤⠀⣀⢻⣿⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⣿⡻⢁⠜⡾⢤⡜⡶⢄⢀⡀⠈⡙⠶⣬⡭⠵⠒⢒⡿⢰⣿⣿⣿⣷⡌⠎⢝⣮⢳⢀⣾⣿⣿⣿⣿⡿⢸⣗⠒⠩⣝⠃⠀⠀⣀⣴⠻⠁⣰⢭⠂⠙⣿⣿⣿⣿
+⣿⣿⣿⣿⣿⠟⢠⡥⡻⢭⡳⡽⣜⢮⣛⢼⡲⣜⢳⡲⠼⡍⠰⢿⣇⣛⠿⠿⣿⣿⣿⣆⠙⣜⠃⣼⣿⡿⠿⢛⣛⣥⡾⠿⠈⣻⡀⢠⡔⡾⣱⢎⡳⣞⡼⣣⠧⢆⠸⣿⣿⣿
+⣿⣿⣿⣿⠏⣰⠈⢼⡹⢧⣛⡼⠳⢸⣩⢖⡳⣝⠮⣵⢫⡝⡭⣖⠶⣬⢭⣙⣒⣒⡚⠭⠥⠄⠨⠷⣒⣚⡩⡭⢥⣖⢲⢭⡛⢶⣹⢲⡭⣳⢭⠞⡵⢋⡼⣣⠟⡮⢃⣿⣿⣿
+⣿⣿⣿⠏⡔⡏⠶⠀⢳⠋⠾⡜⠃⢰⢣⡏⠷⡎⡟⡖⠯⡞⡵⡎⡟⢲⠏⡶⢣⠛⡬⡇⠰⠿⠿⠀⢧⡝⡞⢭⠳⢮⠹⢮⡝⠳⡎⠷⠓⢧⠛⢾⠱⢠⢳⡝⡞⠁⡼⣿⣿⣿
+⣿⣿⡏⢠⢰⣈⢦⡱⠀⢉⢶⡸⠀⢈⡦⣌⢶⣸⢱⡌⣶⡸⡴⣡⡌⡾⣌⣡⢾⡸⣡⢇⡆⢠⠀⢰⡸⢱⣈⢦⡱⢆⡷⢆⡼⣡⢏⠶⣹⡌⣹⡌⢧⠀⢾⢰⠁⣸⡰⣿⣿⣿
+⣿⡿⢁⠚⡴⣋⢾⣹⠀⠈⠎⠀⠄⢸⡱⣏⢾⡱⣏⢾⡱⣝⡳⢧⣻⢱⣎⢗⡮⣳⢝⣺⠀⢸⠄⠰⣙⢧⣏⢶⣹⢫⡜⡯⢞⡵⣫⢏⡗⢾⡱⢞⡧⠀⠈⠃⢠⠳⣝⣿⣿⣿
+⣿⡇⡸⣆⡳⣝⡺⣬⡁⠠⢀⠈⠀⣸⢵⡫⣞⢵⡫⣞⢵⣫⡝⣧⢏⡷⢎⡯⢶⡹⣞⡲⠀⡙⡦⠀⡽⢲⣎⢧⣳⢫⡞⡽⣭⢞⡵⣫⢞⢧⡻⢭⢞⠀⠀⠀⣭⢻⡜⣿⣿⣿
+⣿⠀⡽⣜⡳⣜⢧⡳⣅⠀⠂⡄⠀⡿⣬⢳⡭⣞⡵⣭⢞⢶⡹⢮⡝⡾⣙⡞⣧⣛⠶⡅⠠⡇⢳⠀⢹⢳⡎⣷⢣⡟⣼⢳⡭⣞⡵⣫⢞⢧⡻⣹⢎⠀⡐⢂⡼⣣⢟⣿⣿⣿
+⡟⢸⡱⡽⣘⡳⣎⢷⣣⠀⠡⠐⢨⡗⢧⣛⡼⣚⡼⢎⣛⢮⡝⣧⢻⢵⣫⢞⡵⣫⢛⡄⢰⢛⢸⡀⢘⢧⡻⣜⢧⡻⣜⢧⣛⢶⡹⣥⣛⢮⡵⢫⡞⠀⠄⢰⣋⢧⣏⣿⣿⣿
+⠃⣬⢳⢭⡳⠽⣜⢶⡹⢆⡐⠈⢰⣫⢗⡭⢶⣹⣚⡽⢎⡷⣹⢎⣟⡺⣬⢻⡜⣧⣛⠀⢸⡸⢆⡇⠈⡾⣱⢏⡾⣱⢏⡾⢭⡞⣵⢣⡟⣼⢚⣧⣛⠀⠌⢠⣛⢮⡼⣿⣿⣿
+-->
+
+
+<!DOCTYPE html>
+<html>
+    <head lang="en-US">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet">
+        <title>Me!Me!Me!</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul class="navigation">
+                    <li><a href="index.html">Home Page</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="/works/works.html">My Works</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+        </header>
+        <h1>Hi</h1>
+        <p>Despite everything, my best talent is gaming... even though I don't play that often or much anymore. :c</p>
+        <h2>Favorite Music Artist/Genre:</h2>
+        <ul>
+            <li>Helblinde</li>
+        </ul>
+        <ul>
+            <li>Retro/8-bit/Chiptune</li>
+            <li>Rock/Metal</li>
+            <li>Dubstep</li>
+            <li>Hardcore</li>
+            <li>Nightcore</li>
+            <li>Daycore</li>
+            <li>Trance</li>
+            <li>Artcore</li>
+        </ul>
+        <h2>Fandom I know of:</h2>
+        <ul>
+            <li>Omori</li>
+            <li>One Shot</li>
+            <li>Undertale/Deltarune</li>
+            <li>OFF</li>
+            <li>YTTD</li>
+            <li>DOOM</li>
+            <li>ULTRAKILL</li>
+            <li>Vocaloid</li>
+            <li>Sprunki</li>
+            <li>Roblox</li>
+            <ul>
+                <li>Regretevator</li>
+            </ul>
+            <li>Minecraft</li>
+            <li>Meme Animation</li>
+            <li>JSAB</li>
+            <li>ADOFAI</li>
+            <li>OSU/OSU!Mania</li>
+            <li>Castlecrasher</li>
+            <li>ib</li>
+            <li>Lisa the Painful</li>
+            <li>Mogeko</li>
+            <li>Danganronpa/Ace Attorney</li>
+            <li>Nintendo</li>
+            <ul>
+                <li>Mario/Sonic/Kirby/Samus/Zelda/Earthbound/Mother 3</li>
+            </ul>
+            <li>Cookie Run: Kingdom</li>
+
+        </ul>
+        <h2>Anime I know of:</h2>
+        <ul>
+            <li>Remake our Life!</li>
+            <li>Plastic Memories</li>
+            <li>Madoka Magica</li>
+            <li>Fate</li>
+            <li>Bloom Into You</li>
+            <li>SAO</li>
+            <li>Dragon Ball</li>
+            <li>Naruto</li>
+            <li>Bleach</li>
+            <li>Jujutsu Kaisen</li>
+        </ul>
+        <h2>Talents:</h2>
+        <ul>
+            <li>Gaming (Not much, use bar graph)</li>
+                <ul>
+                    <li>Speedrunning</li>
+                </ul>
+            <li>Drawing</li>
+            <li>Music (Soon)</li>
+            <li>Animating (Soon)</li>
+            <li>More than 1 language (Soon)</li>
+            <li>Coding</li>
+                <ul>
+                    <li>Website</li>
+                    <li>Game Development (Soon)</li>
+                    <li>Software (In a few business days.)</li>
+                </ul>
+        </ul>
+    </body>
+</html>
