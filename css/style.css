@@ -95,7 +95,7 @@ body {
     bottom: 0;
     left: 0;
 
-    background: linear-gradient(to top, transparent 0, rgba(100, 100, 255, 0.5)100%);
+    background: linear-gradient(to top, transparent, rgba(100, 100, 255, 0.5));
 }
 
 .canvas {
@@ -264,6 +264,10 @@ input.who-toggle:checked ~ .card .answer {
     border: solid 5px black;
 }
 
+.shh {
+    border: solid 5px pink;
+}
+
 .center {
     display: flex;
     justify-content: center;
@@ -371,6 +375,29 @@ a:hover img, a:focus img {
     margin: 0;
 
     font-size: 24px;
+}
+
+/* Text + Rainbow Animation */
+
+.rainbowtext {
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: rainbow 5s linear infinite;
+}
+
+@keyframes rainbow {
+
+    to {
+        background-position: 490px;
+    }
+}
+
+/* Cursor Change on Hover */
+
+.rainbowtext, .shh {
+    cursor: url(../assets/kirb-star.png), default;
 }
 
 /* Picture */
