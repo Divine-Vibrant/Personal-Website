@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>PSI Freeze</title>
+
+        <link rel="stylesheet" href="./css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Geostar&family=Rock+3D&display=swap" rel="stylesheet">
+        <link rel="icon" href="./assets/favicon.ico">
+
+    </head>
+
+    <!-- 
+    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⠿⠛⠛⠛⠛⠛⠛⠛⠛⠛⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠋⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠛⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠉⠀⡀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⡀⠀⡀⢀⠀⢀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀⠐⠠⠐⠀⠀⠂⠁⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠞⡅⢹⣦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠈⠄⠐⠀⠈⠹⣿⣿⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡆⠀⠀⢀⡴⣡⣼⣿⠈⣿⣷⣄⠀⠀⠀⠀⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠞⠀⠀⢀⣘⣛⠁⢀⡴⣛⣵⣿⣿⣿⡇⢻⣿⣿⣷⣄⠀⠀⢙⣓⣂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⠇⠀⠐⠛⠛⠃⠰⢟⣱⣿⣿⣿⣿⣿⣷⡈⣿⣿⣿⣿⠷⠄⠈⠛⠛⠓⠄⠘⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⢀⣴⡿⠋⡁⡰⠀⠀⠀⠀⠀⠑⠺⣿⣿⣿⣿⣿⣿⣿⣧⣦⣿⣿⣿⠖⠊⠀⠀⠀⠈⠑⢦⡌⠙⣄⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⢀⣼⡟⠀⣾⡟⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠈⣿⡄⠘⣷⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⢸⣿⡆⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⣿⡇⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠈⣿⣿⣾⣿⣷⡈⠛⠃⠀⠀⠀⣀⣨⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⣘⡛⠁⠀⠀⠀⠀⣠⣿⣧⣶⣿⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⣹⣿⣿⣿⣿⣿⣷⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠉⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹
+    ⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠻⠿⠿⣿⠾⡯⠿⠟⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿
+    ⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠙⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁⣀⣠⣶⣴⣶⣴⣦⣤⡀⢸⣿⣿⣿⣿⣿⣿⣿⠿⡿⠟⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿
+    ⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠿⠿⣿⣿⣿⣿⣿⣿⣦⠙⠿⢹⣷⢻⣿⠧⠟⢡⣾⣿⣿⡿⢿⠻⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠿⠏⠿⡷⣦⣤⣤⣤⣤⣴⣶⠿⠉⠏⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⠘⣶⣶⣦⣭⣤⣤⣤⣥⣤⣶⣶⡏⢀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⢀⣠⣴⣾⣏⠐⣠⣿⣿⣿⣿⣻⣿⣿⣿⣿⣿⣻⡅⠞⢹⣿⣷⣄⡀⢤⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣵⣶⣿⣿⣿⣿⣿⣿⡆⢿⣿⣷⣮⣍⡛⠻⠽⠷⠯⠿⠿⠟⠠⠿⣛⣫⣭⣿⣿⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠐⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡈⢭⠭⣍⠭⡭⡍⠉⢭⣩⢍⡉⢡⣾⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠈⡟⠜⣫⢵⣩⡔⣧⢋⠎⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⣿⣿⠗⠀⠸⡄⠀⠀⠀⠀⢝⠿⣿⣿⣿⣿⣿⠿⠿⠟⢿⣿⣷⠘⣌⢧⣋⢶⡹⣂⠀⣴⣿⣿⣿⣿⠿⢿⣿⣿⣿⣿⠃⠀⠀⠀⠀⡤⠀⣀⢻⣿⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⣿⡻⢁⠜⡾⢤⡜⡶⢄⢀⡀⠈⡙⠶⣬⡭⠵⠒⢒⡿⢰⣿⣿⣿⣷⡌⠎⢝⣮⢳⢀⣾⣿⣿⣿⣿⡿⢸⣗⠒⠩⣝⠃⠀⠀⣀⣴⠻⠁⣰⢭⠂⠙⣿⣿⣿⣿
+    ⣿⣿⣿⣿⣿⠟⢠⡥⡻⢭⡳⡽⣜⢮⣛⢼⡲⣜⢳⡲⠼⡍⠰⢿⣇⣛⠿⠿⣿⣿⣿⣆⠙⣜⠃⣼⣿⡿⠿⢛⣛⣥⡾⠿⠈⣻⡀⢠⡔⡾⣱⢎⡳⣞⡼⣣⠧⢆⠸⣿⣿⣿
+    ⣿⣿⣿⣿⠏⣰⠈⢼⡹⢧⣛⡼⠳⢸⣩⢖⡳⣝⠮⣵⢫⡝⡭⣖⠶⣬⢭⣙⣒⣒⡚⠭⠥⠄⠨⠷⣒⣚⡩⡭⢥⣖⢲⢭⡛⢶⣹⢲⡭⣳⢭⠞⡵⢋⡼⣣⠟⡮⢃⣿⣿⣿
+    ⣿⣿⣿⠏⡔⡏⠶⠀⢳⠋⠾⡜⠃⢰⢣⡏⠷⡎⡟⡖⠯⡞⡵⡎⡟⢲⠏⡶⢣⠛⡬⡇⠰⠿⠿⠀⢧⡝⡞⢭⠳⢮⠹⢮⡝⠳⡎⠷⠓⢧⠛⢾⠱⢠⢳⡝⡞⠁⡼⣿⣿⣿
+    ⣿⣿⡏⢠⢰⣈⢦⡱⠀⢉⢶⡸⠀⢈⡦⣌⢶⣸⢱⡌⣶⡸⡴⣡⡌⡾⣌⣡⢾⡸⣡⢇⡆⢠⠀⢰⡸⢱⣈⢦⡱⢆⡷⢆⡼⣡⢏⠶⣹⡌⣹⡌⢧⠀⢾⢰⠁⣸⡰⣿⣿⣿
+    ⣿⡿⢁⠚⡴⣋⢾⣹⠀⠈⠎⠀⠄⢸⡱⣏⢾⡱⣏⢾⡱⣝⡳⢧⣻⢱⣎⢗⡮⣳⢝⣺⠀⢸⠄⠰⣙⢧⣏⢶⣹⢫⡜⡯⢞⡵⣫⢏⡗⢾⡱⢞⡧⠀⠈⠃⢠⠳⣝⣿⣿⣿
+    ⣿⡇⡸⣆⡳⣝⡺⣬⡁⠠⢀⠈⠀⣸⢵⡫⣞⢵⡫⣞⢵⣫⡝⣧⢏⡷⢎⡯⢶⡹⣞⡲⠀⡙⡦⠀⡽⢲⣎⢧⣳⢫⡞⡽⣭⢞⡵⣫⢞⢧⡻⢭⢞⠀⠀⠀⣭⢻⡜⣿⣿⣿
+    ⣿⠀⡽⣜⡳⣜⢧⡳⣅⠀⠂⡄⠀⡿⣬⢳⡭⣞⡵⣭⢞⢶⡹⢮⡝⡾⣙⡞⣧⣛⠶⡅⠠⡇⢳⠀⢹⢳⡎⣷⢣⡟⣼⢳⡭⣞⡵⣫⢞⢧⡻⣹⢎⠀⡐⢂⡼⣣⢟⣿⣿⣿
+    ⡟⢸⡱⡽⣘⡳⣎⢷⣣⠀⠡⠐⢨⡗⢧⣛⡼⣚⡼⢎⣛⢮⡝⣧⢻⢵⣫⢞⡵⣫⢛⡄⢰⢛⢸⡀⢘⢧⡻⣜⢧⡻⣜⢧⣛⢶⡹⣥⣛⢮⡵⢫⡞⠀⠄⢰⣋⢧⣏⣿⣿⣿
+    ⠃⣬⢳⢭⡳⠽⣜⢶⡹⢆⡐⠈⢰⣫⢗⡭⢶⣹⣚⡽⢎⡷⣹⢎⣟⡺⣬⢻⡜⣧⣛⠀⢸⡸⢆⡇⠈⡾⣱⢏⡾⣱⢏⡾⢭⡞⣵⢣⡟⣼⢚⣧⣛⠀⠌⢠⣛⢮⡼⣿⣿⣿
+    -->
+
+    <body>
+
+        <div class="horizon">
+
+            <div class="frame" id="up1left1">
+
+                <div class="left-floaty">
+
+                    Null
+
+                </div>
+
+                <div class="down-floaty">
+
+                    <a href="#left1">Down</a>
+
+                </div>
+
+                <div class="container">
+
+                    <div class="container x-scroll">
+
+                        <div>
+
+                            <img src="./assets/img/amtmb.jpg" alt="" class="imagesize">
+                            <p>Meme Animation Community</p>
+                            <p>They may be cringe, but more talented than me. :c</p>
+
+                        </div>
+
+                    </div>
+
+                    <h2>Fandoms I Know</h2>
+
+                </div>
+
+                <div class="up-floaty">
+
+                    Null
+
+                </div>
+
+                <div class="right-floaty">
+
+                    <a href="#up1">Right</a>
+
+                </div>
+
+            </div>
+
+            <div class="frame" id="up1">
+
+                <div class="left-floaty">
+
+                    <a href="#up1left1">Left</a>
+
+                </div>
+
+                <div class="down-floaty">
+
+                    <a href="#main">Down</a>
+
+                </div>
+
+                <div class="container">
+
+                    <div class="container x-scroll">
+
+                        <div class="spacing">
+
+                        <img src="./assets/img/gaming.jpg" alt="" class="imagesize">
+                        <p>Gaming gone down the drain,<br>I can speedrun!</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <img src="./assets/img/time-attack.png" alt="" class="imagesize">
+                            <p>I can draw! (Literally anyone can)</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <p>Coding!</p>
+                            <p>You're literally looking at my website baka!</p>
+
+                        </div>
+
+                    </div>
+
+                    <h2>Talents I Have</h2>
+
+                </div>
+
+                <div class="up-floaty">
+
+                    Null
+
+                </div>
+
+                <div class="right-floaty">
+
+                    <a href="#up1right1">Right</a>
+
+                </div>
+
+            </div>
+
+            <div class="frame" id="up1right1">
+
+                <div class="left-floaty">
+
+                    <a href="#up1">Left</a>
+
+                </div>
+
+                <div class="down-floaty">
+
+                    <a href="#right1">Down</a>
+
+                </div>
+
+                <div class="container">
+
+                    <div class="container x-scroll">
+
+                        <div class="spacing">
+
+                            <img src="./assets/img/Pizza-Tower.jpg" alt="" class="imagesize">
+                            <p>Pizza Tower</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <img src="./assets/img/iomor.jpg" alt="" class="imagesize">
+                            <p>Omori</p>
+
+                        </div>
+
+                    </div>
+
+                    <h2>Games I Know</h2>
+
+                </div>
+
+                <div class="up-floaty">
+
+                    Null
+
+                </div>
+                
+                <div class="right-floaty">
+
+                    <a href="#up1right2">Right</a>
+
+                </div>
+
+            </div>
+
+            <div class="frame" id="up1right2">
+
+                <div class="left-floaty">
+
+                    <a href="#up1right1">Left</a>
+
+                </div>
+
+                <div class="down-floaty">
+
+                    <a href="#right2">Down</a>
+
+                </div>
+
+                <div class="container">
+
+                    <div class="container x-scroll">
+
+                        <h2 class="spacing" style="border-right: 2px solid black; margin-right: 0; padding-right: 1em;"><a href="./memes/">Memes</a></h2>
+
+                        <h2 class="spacing" style="border-left: 2px solid black; margin-left: 0; padding-left: 1em;"><a href="./comics/">Comics</a></h2>
+
+                    </div>
+
+                </div>
+
+                <div class="up-floaty">
+
+                    Null
+
+                </div>
+
+                <div class="right-floaty">
+
+                    Null
+
+                </div>
+
+            </div>
+        
+        </div>
+
+        <div class="horizon">
+
+            <div class="frame" id="left1">
+
+                <div class="left-floaty">
+
+                    Null
+
+                </div>
+
+                <div class="down-floaty">
+
+                    <a href="#down1left1">Down</a>
+
+                </div>
+
+                <div class="container">
+
+                    <div class="container x-scroll">
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/OgQc2wSjy3c?si=SO8cWePBFxT8aIb7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p class="text-highlight">Random Pick by Me</p>
+
+                        </div>
+
+                        <div class="spacing">
+                        
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/D-MF_Vbgs94?si=hlgP7fVEMR9mi0Kx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Dubstep</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7NFevVjg8vg?si=eHqOhnQzbMjqStUF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Electronic "EDM"</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jsZ32R_K0o4?si=CmYPQgy5FQ0h5CA6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Speedcore</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/8RAYlykjQrw?si=ZVBrjClgUeU8e2VY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Extracore (I'm being unironic)</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NWCNpCHeMf0?si=Acf7lq5rE8bkTA0z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Phonk</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-mh0vism1c4?si=App6-T63pRiTezkW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Nightcore</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/EDnIEWyVIlE?si=IIITWJUsQlsij0vP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Metal</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hewBOkOuSts?si=B8HgwTimyBIWEbUe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>8-Bit "Retro" "Chiptune"</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/n5n7CSGPzqw?si=xzk04ubNF7XMFDXk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Vocaloid</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/P4677VurzXg?si=39-QqGKADsp3GZ90" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Hardcore</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/OwPJyEdmPEY?si=JsWzherEpaRbj9DH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Rock</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wDgQdr8ZkTw?si=gZtuLdmdPmO44o8l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Video Game OST</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_YnwnxSE2UA?si=6tC5pxoGwdQ1SHoE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Mixture Genres...</p>
+
+                        </div>
+
+                        <div class="spacing">
+                            
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/B6DGB0oESzQ?si=dcPiadY7SQWS1viC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>...(I don't listen to rap nor country)</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/R1MYq177SUg?si=2Ulat_Vhx2tqTxug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Maidcore</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/5sq3SSPU4uc?si=A8XxTwf8G10mfN8Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Breakcore</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/XPlBPrcFnps?si=eaBcZJr3xzR7xTCF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Hyperpop/Indie</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/szG6OMY8jHI?si=ErtsVYfyb4GG2o5k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Artcore</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-1EPegIzD2M?si=qqKt5Ck6t5_U7BtF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Frenchcore</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/28DcIEImPkM?si=g4tXiImA238D5jRe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>Remix (and Helblinde itself)...</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Mc05pzuA9KQ?si=9U1hXlKdG3VDFKMH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <p>...and Sampling (and Dj Sharpnel itself)</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <p>Will add some more later...</p>
+
+                        </div>
+
+                    </div>
+
+                    <h2>My Music Taste</h2>
+
+                </div>
+
+                <div class="up-floaty">
+
+                    <a href="#up1left1">Up</a>
+
+                </div>
+
+                <div class="right-floaty">
+
+                    <a href="#main">Right</a>
+
+                </div>
+
+            </div>
+
+            <main class="frame" id="main">
+
+                <div class="left-floaty">
+
+                <a href="#left1">Left</a>
+
+                </div>
+
+                <div class="down-floaty">
+
+                    <a href="#down1">Down</a>
+
+                </div>
+
+                <div class="middle">
+
+                    <div id="green-touhou" class="tenor-gif-embed" data-postid="23318850" data-share-method="host" data-aspect-ratio="0.865625" data-width="100%"><a href="https://tenor.com/view/okuu-touhou-utsuho-gif-23318850">Okuu Touhou Sticker</a>from <a href="https://tenor.com/search/okuu-stickers">Okuu Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+                    <div class="container">
+
+                        <h1>You're so Sigma!</h1>
+                        <p>On Skibid!!</p>
+                        <p>ARE YOU READY FOR NAVIGATION H*LL!?!?!</p>
+
+                    </div>
+
+                </div>
+
+                <div class="up-floaty">
+
+                    <a href="#up1">Up</a>
+
+                </div>
+
+                <div class="right-floaty">
+
+                    <a href="#right1">Right</a>
+
+                </div>
+            
+            </main>
+
+            <div class="frame" id="right1">
+
+                <div class="left-floaty">
+
+                    <a href="#main">Left</a>
+
+                </div>
+
+                <div class="down-floaty">
+
+                    <a href="#down1right1">Down</a>
+
+                </div>
+
+                <div class="container" style="text-align: center;">
+
+                    <h2 style="font-style: italic;">Blog</h2>
+                    <p>Not Available Yet</p>
+
+                </div>
+
+                <div class="up-floaty">
+
+                    <a href="#up1right1">Up</a>
+
+                </div>
+
+                <div class="right-floaty">
+
+                    <a href="#right2">Right</a>
+
+                </div>
+
+            </div>
+
+            <div class="frame" id="right2">
+
+                <div class="left-floaty">
+
+                    <a href="#right1">Left</a>
+
+                </div>
+
+                <div class="down-floaty">
+
+                    <a href="#down1right2">Down</a>
+
+                </div>
+
+                <div class="container">
+
+                    <div class="container x-scroll">
+
+                        <div class="spacing">
+
+                            <img src="./assets/img/skibiditoilet.jpg" alt="" class="imagesize">
+                            <p>Skibidi Toilet</p>
+                            <p>Haters never knows it's peak!!</p>
+
+                        </div>
+
+                    </div>
+
+                    <h2>Shows I Know</h2>
+
+                </div>
+
+                <div class="up-floaty">
+
+                    <a href="#up1right2">Up</a>
+
+                </div>
+
+                <div class="right-floaty">
+
+                    Null
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="horizon">
+
+            <div class="frame" id="down1left1">
+
+                <div class="left-floaty">
+
+                    Null
+
+                </div>
+
+
+                <div class="down-floaty">
+
+                    Null
+
+                </div>
+
+                <div class="container">
+
+                    <div class="container x-scroll" style="text-align: center; display: flex; align-items: center;">
+
+                        <div class="spacing" style="margin-right: 0; padding-right: 1em; border-right: 2px solid black;">
+
+                            <p>I have social anxiety.</p>
+                            <p>Even online.</p>
+                            <p>I fear people. :c</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <p>YouTube</p>
+                            <p>Not Telling</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <p>Steam</p>
+                            <p>Not Telling</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <p>Discord</p>
+                            <p>Not Telling</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <p>Boblox</p>
+                            <p>Inactive</p>
+
+                        </div>
+
+                        <div class="spacing">
+
+                            <p>*intendo</p>
+                            <p>idk my code</p>
+
+                        </div>
+
+                    </div>
+
+                    <h2>Socials</h2>
+
+                </div>
+
+                <div class="up-floaty">
+
+                    <a href="#left1">Up</a>
+
+                </div>
+
+                <div class="right-floaty">
+
+                    <a href="#down1">Right</a>
+
+                </div>
+
+            </div>
+
+            <div class="frame" id="down1">
+
+                <div class="left-floaty">
+
+                    <a href="#down1left1">Left</a>
+
+                </div>
+
+                <div class="down-floaty">
+
+                    Null
+
+                </div>
+
+
+                <h2 class="container" style="background: rgba(240, 255, 255, 0.1)"><a href="../">Go Back To Main Page</a></h2>
+
+                <div class="up-floaty">
+
+                    <a href="#main">Up</a>
+
+                </div>
+
+
+                <div class="right-floaty">
+
+                    <a href="#down1right1">Right</a>
+
+                </div>
+
+            </div>
+
+            <div class="frame" id="down1right1">
+
+                <div class="left-floaty">
+
+                    <a href="#down1">Left</a>
+
+                </div>
+
+                <div class="down-floaty">
+
+                    Null
+
+                </div>
+
+                <h2 class="container">Animes I Know</h2>
+
+                <div class="up-floaty">
+
+                    <a href="#right1">Up</a>
+
+                </div>
+
+                <div class="right-floaty">
+
+                    <a href="#down1right2">Right</a>
+
+                </div>
+
+            </div>
+
+            <div class="frame" id="down1right2">
+
+                <div class="left-floaty">
+
+                    <a href="#down1right1">Left</a>
+
+                </div>
+
+                <div class="down-floaty">
+
+                    Null
+
+                </div>
+
+                <div class="container" style="text-align: center;">
+
+                    <h2 style="margin: 0; color: white;">Fiddle</h2>
+                    <p style="opacity: 5%; margin: 0;">Will unlock after everything is finished.</p>
+
+                </div>
+
+                <div class="up-floaty">
+
+                    <a href="#right2">Up</a>
+
+                </div>
+
+                <div class="right-floaty">
+
+                    Null
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

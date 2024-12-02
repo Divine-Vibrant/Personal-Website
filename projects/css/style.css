@@ -1,0 +1,222 @@
+/* Default Settings */
+
+:root {
+    font-family: "Asul", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    user-select: none;
+}
+  
+html {
+    margin: 0;
+
+    scroll-snap-type: y mandatory;
+    scroll-snap-stop: always;
+
+    background: #121212;
+
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+  
+  /* Background */
+
+.color {
+    background: linear-gradient(purple, grey, purple);
+    background-size: 300% 300%;
+
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+
+    z-index: -1;
+
+    animation-name: color;
+    animation-duration: 90s;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes color {
+    from {
+        background-position: top left;
+        filter: brightness(25%);
+        transform: rotate(0deg) scale(3);
+    }
+
+    25% {
+        background-position: bottom right;
+        filter: brightness(0%);
+        transform: rotate(30deg) scale(1.7);
+    }
+
+    75% {
+        background-position: bottom left ;
+        filter: brightness(25%);
+        transform: rotate(-30deg) scale(1.7);
+    }
+
+    to {
+        background-position: top right;
+        filter: brightness(25%);
+        transform: rotate(0deg) scale(3);
+}
+}
+
+.back {
+    background: url(../assets/img/water.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+
+    z-index: -1;
+
+    opacity: 25%;
+
+    animation-name: back;
+    animation-duration: 45s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes back {
+
+    from {
+        background-position: top ;
+    }
+
+    70% {
+        background-position: bottom;
+    }
+
+    to {
+        background-position: top;
+    }
+
+}
+
+.frame {
+    background-image: url(../assets/img/noise.png);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+
+    scroll-snap-align: start;
+}
+
+/* Items */
+
+.down {
+    display: flex;
+    justify-content: space-around;
+
+    position: absolute;
+    bottom: 0;
+
+    width: 0;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.6);
+    
+    padding: 1em;
+    border-radius: 2px;
+}
+
+.highlight {
+    background: rgba(238, 130, 238, 0.6);
+
+    min-width: 500px;
+    max-width: 500px;
+
+    min-height: 500px;
+    max-height: 500px;
+
+    border-radius: 7px;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+
+    overflow: scroll;
+}
+
+.project {
+    margin: 0em 1em
+}
+
+
+/* Text */
+
+h1 {
+    font-size: 48px;
+}
+
+.end {
+    animation: end 14s infinite;
+}
+
+@keyframes end {
+
+    from {
+        background: rgba(255, 0, 0, 0.6);
+    }
+
+    15% {
+        background: rgba(255, 165, 0, 0.6);
+    }
+
+    30% {
+        background: rgba(255, 255, 0, 0.6);
+    }
+
+    45% {
+        background: rgba(0, 165, 0, 0.6);
+    }
+
+    60% {
+        background: rgba(0, 0, 255, 0.6);
+    }
+
+    75% {
+        background: rgba(75, 0, 130, 0.6);
+    }
+
+    90% {
+        background: rgba(238, 130, 238, 0.6);
+    }
+
+    to {
+        background: rgba(255, 0, 0, 0.6);
+    }
+
+}
+
+.contrast {
+    color: white;
+}
+
+.middle {
+    text-align: center;
+}

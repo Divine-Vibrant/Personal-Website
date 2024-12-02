@@ -9,6 +9,8 @@
 html {
     margin: 0;
     scroll-behavior: smooth;
+
+    user-select: none;
 }
 
 * {
@@ -35,6 +37,12 @@ body {
     text-shadow: grey 2px 2px 2px;
 }
 
+.blue {
+    background-color: aquamarine;
+
+    z-index: 1;
+}
+
 .pop-up-2 {
     color: rgb(90, 8, 24);
 }
@@ -54,9 +62,9 @@ body {
 /* Intro */
 
 .intro {
-    background-image: url(/src/assets/img/off.jpg);
+    background-image: url(../assets/img/off.jpg);
     background-size: cover;
-    background-position: top right;
+    background-position: center;
     background-attachment: fixed;
 }
 
@@ -140,10 +148,12 @@ body {
 
 .section:nth-child(2n+1) {
     background-color: rgb(17, 115, 180);
+    color: black;
 }
 
 .section:nth-child(2n) {
     background-color: rgb(177, 30, 30);
+    color: white;
 }
 
 /* Scroll + Card */
@@ -185,8 +195,14 @@ body {
     100% {transform: rotate(360deg);}
 }
 
+.question {
+    color: black;
+}
+
 .answer {
     display: none;
+
+    color: black;
 }
 
 .who-toggle {
@@ -260,7 +276,7 @@ a img {
 
 a:hover img, a:focus img {
     transition-duration: 500ms;
-    filter: opacity(75%);
+    filter: opacity(66%);
 }
 
 #navigation a {
@@ -270,9 +286,9 @@ a:hover img, a:focus img {
 /* Scroll + End Cover */
 
 .outro {
-    background-image: url(/src/assets/img/hmm.jpg);
+    background-image: url(../assets/img/hmm.jpg);
     background-size: cover ;
-    background-position: top right;
+    background-position: center;
     background-attachment: fixed;
 }
 
@@ -330,6 +346,31 @@ a:hover img, a:focus img {
 
 .middle {
     text-align: center;
+}
+
+.toofardown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), rgba(0, 255, 0, 0.3);
+    padding: 2em;
+    border-radius: 2em;
+
+    text-shadow: azure 3px 3px 3px;
+}
+
+.toofardown h2 {
+    margin: 0;
+
+    font-size: 48px;
+}
+
+.toofardown p {
+    margin: 0;
+
+    font-size: 24px;
 }
 
 /* Picture */

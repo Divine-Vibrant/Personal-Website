@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <!-- 
+        ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+        ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⣄⡈⠙⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+        ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+        ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+        ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠿⠿⠿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢋⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+        ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠙⠻⠟⢛⣭⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+        ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+        ⣿⣿⣿⣿⡁⠛⠛⠛⠋⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+        ⣿⣿⣿⣿⣿⣦⣄⠀⠀⠀⠀⠀⠐⠀⠀⠀⠒⠒⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿
+        ⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿
+        ⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿
+        ⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿
+        ⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣿
+        ⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⡀⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿
+        ⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⠀⠀⠀⠀⠀⠀⠀⣆⠀⠀⠀⠀⠀⠀⣠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣄⣹⣿⣿
+        ⣿⣏⣀⣀⣀⠀⠀⠀⠀⠀⠀⢀⣿⡟⠀⠀⠀⠀⠀⠀⠀⢻⠀⠀⠀⠀⠀⠀⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⣿⣿
+        ⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⣮⣵⣦⠀⠀⠀⣀⣀⣀⣤⣼⣦⣤⠤⠀⠀⠀⠻⢇⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿
+        ⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⢘⠋⢁⣀⣤⣤⣶⣿⣿⣿⣿⣿⣿⣿⣦⣤⣤⣤⣀⡀⠄⣉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⣿
+        ⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⢺⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿
+        ⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⢀⣴⣶⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿
+        ⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠈⡁⠲⣦⣹⡇⠀⠀⠀⠀⠀⠀⠀⢹⣿
+        ⣯⣿⣋⣿⣿⣿⡆⠀⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣷⣤⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⢘⣋⣴⣿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿
+        ⣿⣿⣙⣻⣿⣿⣿⣆⠀⠀⣀⠘⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀⠀⠀⠀⠿⠟⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿
+        ⣿⣿⣿⣿⣿⠿⠿⣿⡿⠀⠀⠀⠀⠀⠉⠙⠛⠿⠿⢿⣿⣿⣿⣿⣿⣿⡿⠛⠋⠁⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻
+        ⣿⣿⣿⣿⣿⡀⠂⣘⣁⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⡇⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸
+        ⣿⣿⣿⣿⣿⣿⣾⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸
+        ⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣿⡄⠀⣀⣤⣶⣿⡀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠁⠀⠀⠀⠀⠀⣼
+        ⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⣠⣾⣿⠿⠛⣋⣤⣶⣿⣿⣿⣿⣿⣷⡄⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠀⣿
+        ⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⣠⣴⠿⠁⠴⠛⢛⣩⣤⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⢸⣿
+        ⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⢀⣤⣾⣿⣿⣿⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠀⠀⠀⠀⠀⠀⢰⡇⠀⢀⣿⣿
+        ⣿⣿⣿⣿⣿⣿⣿⣿⣧⡀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡄⢶⣶⣶⣶⣿⣷⣶⣿⣿⣿
+        ⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡌⣿⣿⣿⣿⣿⣿⣿⣿⣿
+        ⣿⣿⣿⣿⣿⣿⣿⣿⡏⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠈⣿⣿⣿⣿⣿⣿⣿⣿ 
+        -->
+        
+        <link rel="stylesheet" href="./css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="icon" href="./assets/favicon.ico">
+        
+        <title>Portfolio</title>
+    
+    </head>
+    
+    <body>
+
+        <div class="color"></div>
+        <div class="back"></div>
+
+        <main>
+
+            <div class="frame">
+
+                <div class="container">
+
+                    <h1>Project Hightlights</h1>
+
+                </div>
+
+                <div>
+
+                    <picture class="down">
+
+                        <img src="./assets/img/down.png" alt="Scroll Down">
+
+                    </picture>
+
+                </div>
+
+            </div>
+
+            <div class="frame">
+
+                <h2 class="container">Games</h2>
+
+                <div class="highlight">
+
+                    <p>No Games Yet</p>
+
+                    <div class="row">
+
+                        <img src="./assets/img/placeholder.jpg" alt="" class="project">
+                        <img src="./assets/img/placeholder.jpg" alt="" class="project">
+                        <img src="./assets/img/placeholder.jpg" alt="" class="project">
+
+                    </div>
+
+                    <p><a href="#">Gallery</a></p>
+
+                </div>
+
+            </div>
+
+            <div class="frame" id="drawing">
+
+                <h2 class="container">Drawings</h2>
+
+                <div class="highlight">
+
+                    <p>No Drawings Yet</p>
+
+                    <div class="row">
+
+                        <img src="./assets/img/placeholder.jpg" alt="" class="project">
+                        <img src="./assets/img/placeholder.jpg" alt="" class="project">
+                        <img src="./assets/img/placeholder.jpg" alt="" class="project">
+
+                    </div>
+
+                    <p><a href="#">Gallery</a></p>
+
+                </div>
+
+            </div>
+
+            <div class="frame">
+
+                <h2 class="container">Musics</h2>
+
+                <div class="highlight">
+
+                    <p>No Musics Yet</p>
+
+                    <div class="row">
+
+                        <img src="./assets/img/placeholder.jpg" alt="" class="project">
+                        <img src="./assets/img/placeholder.jpg" alt="" class="project">
+                        <img src="./assets/img/placeholder.jpg" alt="" class="project">
+
+                    </div>
+
+                    <p><a href="#">Gallery</a></p>
+
+                </div>
+
+            </div>
+
+            <div class="frame">
+
+                <h2 class="container">Animations</h2>
+
+                <div class="highlight">
+
+                    <p><a href="#drawing">Click Me</a></p>
+                    <p>...<br>Like... don't one thing cause the other?</p>
+
+                </div>
+
+            </div>
+
+            <div class="frame">
+
+                <h2 class="container end">End</h2>
+
+                <div class="contrast middle">
+
+                    <p>-</p>
+                    <p>Divine-Vibrant</p>
+
+                </div>
+
+                <div class="container">
+
+                    <p><a href="../">Go Back to Main Page?</a></p>
+
+                </div>
+
+            </div>
+
+        </main>
+    
+    </body>
+
+</html>

@@ -1,0 +1,122 @@
+/* Default Settings */
+
+:root {
+    font-family: "Rubik Iso", system-ui;
+    font-weight: 400;
+    font-style: normal;
+
+    cursor: none;
+    user-select: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    overflow: hidden;
+}
+
+.startup {
+    animation-name: startup;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-play-state: running;
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+}
+
+@keyframes startup {
+
+    from {
+        background: rgba(0, 0, 0, 1);
+    }
+
+    to {
+        background: rgba(0, 0, 0, 0);
+    }
+
+}
+
+.dark {
+    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.9)), url(../assets/img/cave.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+
+    color: white;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+}
+
+/* Effect */
+
+#flashlight {
+    height: 1000px;
+    width: 1000px;
+    position: absolute;
+    background: radial-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 25%, transparent 50%);
+}
+
+.opacity {
+    opacity: 0;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+}
+
+.opacity:hover {
+    opacity: 80%
+}
+
+/* Menu */
+
+.opacity ul {
+    margin: 0;
+    list-style-type: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    width: auto;
+}
+
+.opacity li {
+    display: inline;
+}
+
+/* Items */
+
+img {
+    width: 200px;
+    height: 20;
+}
+
+/* Text */
+
+.middle {
+    text-align: center;
+}
+
+.truemiddle {
+    display: flex;
+    justify-content: center;
+    
+    width: 100vw;
+}

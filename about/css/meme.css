@@ -1,0 +1,46 @@
+/* Default Setting */
+
+body {
+    margin: 0;
+}
+
+main {
+    background: linear-gradient(calc(45deg*3), grey, lime, grey);
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Title */
+
+.title {
+    width: fit-content;
+    height: fit-content;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 50px;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    margin-top: 1em;
+}
+
+/* Gallery */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
